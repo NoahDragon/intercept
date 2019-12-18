@@ -14,7 +14,7 @@
     <ProjectGuid>{57F5426C-8A6B-460D-960E-D9325B8582BC}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>intercept</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -59,6 +59,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>.\library\x86\interception.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y $(ProjectDir)keyremap.ini  $(TargetDir)
+xcopy /y $(ProjectDir)interception.dll  $(TargetDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -77,11 +81,13 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>.\library\x86\interception.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y $(ProjectDir)keyremap.ini  $(TargetDir)
+xcopy /y $(ProjectDir)interception.dll  $(TargetDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="keyremap.ini" />
-    <None Include="ReadMe.txt" />
-    <None Include="redragon_command.ahk" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="interceptionpp.h" />

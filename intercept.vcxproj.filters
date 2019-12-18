@@ -15,11 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ReadMe.txt" />
     <None Include="keyremap.ini">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="redragon_command.ahk">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>
